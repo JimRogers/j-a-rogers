@@ -70,6 +70,43 @@
     @media (min-width: 992px) {
       .masonry-grid { flex-direction: row; }
       .masonry-col { width: 33.333%; }
+
+      /* Pan animations */
+      @keyframes pan-up {
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(-20%); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes pan-down {
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(20%); }
+        100% { transform: translateY(0); }
+      }
+
+      .portfolio-item {
+        overflow: hidden;
+        height: 220px;
+        border-radius: 0.5rem;
+      }
+      .portfolio-item img {
+        height: 140%;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 0;
+        border-radius: 0.5rem;
+        transform: translateY(0);
+      }
+      /* Odd columns pan up, even columns pan down */
+      .masonry-col:nth-child(odd) .portfolio-item img {
+        animation: pan-up 18s ease-in-out infinite;
+      }
+      .masonry-col:nth-child(even) .portfolio-item img {
+        animation: pan-down 18s ease-in-out infinite;
+      }
+      /* Pause on hover so the lightbox click is comfortable */
+      .portfolio-item:hover img {
+        animation-play-state: paused;
+      }
     }
     @media (max-width: 991px) and (min-width: 768px) {
       .masonry-grid { flex-direction: row; }
