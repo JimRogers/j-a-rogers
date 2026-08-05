@@ -107,31 +107,15 @@
       .masonry-grid { flex-direction: row; }
       .masonry-col { width: 33.333%; }
 
-      /* Continuous upward scroll animation */
-      @keyframes scroll-up {
-        0%   { transform: translateY(0); }
-        100% { transform: translateY(-50%); }
-      }
-
       .portfolio-item {
         overflow: hidden;
         height: 600px;
         border-radius: 0.5rem;
       }
       .portfolio-item img {
-        height: 200%;
         width: 100%;
-        object-fit: cover;
         margin-bottom: 0;
         border-radius: 0;
-        animation: scroll-up 20s linear infinite;
-      }
-      .masonry-col .portfolio-item:nth-of-type(even) img {
-        animation-direction: reverse;
-      }
-      /* Pause on hover so the lightbox click is comfortable */
-      .portfolio-item:hover img {
-        animation-play-state: paused;
       }
     }
     @media (max-width: 991px) and (min-width: 768px) {
